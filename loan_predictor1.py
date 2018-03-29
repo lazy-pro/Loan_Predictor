@@ -4,11 +4,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("/home/shivam/loan_prediction/train.csv") 	#reading data into dataframe
+df = pd.read_csv("F:/projects/Loan_Predictor/train.csv") 	#reading data into dataframe
+df1 = pd.read_csv("F:/projects/Loan_Predictor/train_u6lujuX_CVtuZ9i.csv")
 y=df.Loan_Status
+print df1
+print df.describe()
 df = df[['Gender','Married','Dependents','Education','Self_Employed','ApplicantIncome','CoapplicantIncome','LoanAmount','Loan_Amount_Term','Credit_History','Property_Area']]
 
-train_features,test_features,train_labels,test_labels = train_test_split(df, y, test_size=0.2)
+train_features,test_features,train_labels,test_labels = train_test_split(df, y, test_size=0.2, shuffle=False)
 
 #print train_features.shape
 #print train_labels.shape
