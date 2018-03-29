@@ -15,11 +15,11 @@ train_features,test_features,train_labels,test_labels = train_test_split(df, y, 
 #print test_features.shape
 #print test_labels.shape
 
-from sklearn.neighbors import KNeighborsClassifier
-clf = KNeighborsClassifier(n_neighbors=25)
-clf.fit(train_features,train_labels.values.ravel())
+from sklearn.ensemble import ExtraTreesClassifier
+clf=ExtraTreesClassifier(n_estimators=30, min_samples_split=35,random_state=0)
+clf.fit(train_features,train_labels)
 
 pred = clf.predict(test_features)
 
 from sklearn.metrics import accuracy_score
-print accuracy_score(test_labels.values.ravel(),pred)
+print accuracy_score(test_labels,pred)
